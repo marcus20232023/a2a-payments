@@ -265,3 +265,28 @@ Last updated: 2026-02-11
 **Launch is live with 3 platforms!** Monitoring for community traction.
 
 Next high-impact: Hacker News (no karma requirement), LinkedIn, Discord communities.
+
+---
+
+## 📅 Update: 2026-02-11 07:25 CST
+
+### ✅ Published to ClawHub!
+
+**Skill Directory:** ClawHub (OpenClaw skills)
+**Slug:** a2a-shib-payments
+**Version:** 2.0.0
+**ID:** k978a508b230tz56nkq32rkrvd80yxfx
+**URL:** https://clawhub.com
+
+**Installation command:**
+```bash
+clawhub install a2a-shib-payments
+```
+
+**Distribution Channels Now:**
+1. ✅ GitHub (marcus20232023/a2a-shib-payments)
+2. ✅ ClawHub (OpenClaw skill directory)
+3. ⏳ Awesome-Ethereum (PR #23 pending)
+4. ✅ Social: X/Twitter, Bluesky, r/CryptoCurrency
+
+**Total reach:** 2 major directories + 3 social platforms
