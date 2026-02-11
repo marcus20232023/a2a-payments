@@ -58,13 +58,33 @@ fi
 if [ "$CURRENT_PRS" -gt "$PREV_PRS" ]; then
   NEW_PRS=$((CURRENT_PRS - PREV_PRS))
   ALERTS="${ALERTS}🎉 +${NEW_PRS} new PR(s)! Total: ${CURRENT_PRS}\n"
-  # Get latest PR details
+  # Get latest PR details with full info
   LATEST_PR=$(echo "$PR_DATA" | jq -r '.[0]')
   if [ "$LATEST_PR" != "null" ]; then
     PR_NUM=$(echo "$LATEST_PR" | jq -r '.number')
     PR_TITLE=$(echo "$LATEST_PR" | jq -r '.title')
     PR_AUTHOR=$(echo "$LATEST_PR" | jq -r '.author.login')
-    ALERTS="${ALERTS}  PR #${PR_NUM}: \"${PR_TITLE}\" by @${PR_AUTHOR}\n"
+    PR_URL="https://github.com/${REPO}/pull/${PR_NUM}"
+    
+    # Get detailed PR info
+    PR_DETAIL=$(gh pr view "$PR_NUM" --repo "$REPO" --json additions,deletions,changedFiles,files 2>/dev/null)
+    if [ $? -eq 0 ]; then
+      ADDITIONS=$(echo "$PR_DETAIL" | jq -r '.additions')
+      DELETIONS=$(echo "$PR_DETAIL" | jq -r '.deletions')
+      CHANGED_FILES=$(echo "$PR_DETAIL" | jq -r '.changedFiles')
+      
+      ALERTS="${ALERTS}  PR #${PR_NUM}: \"${PR_TITLE}\" by @${PR_AUTHOR}\n"
+      ALERTS="${ALERTS}  📊 Changes: ${CHANGED_FILES} files, +${ADDITIONS}/-${DELETIONS}\n"
+      ALERTS="${ALERTS}  🔗 ${PR_URL}\n"
+      ALERTS="${ALERTS}\n  ✅ Suggested Actions:\n"
+      ALERTS="${ALERTS}  1. Review the code changes\n"
+      ALERTS="${ALERTS}  2. Check if tests are included\n"
+      ALERTS="${ALERTS}  3. Test locally if needed\n"
+      ALERTS="${ALERTS}  4. Approve or request changes\n"
+    else
+      ALERTS="${ALERTS}  PR #${PR_NUM}: \"${PR_TITLE}\" by @${PR_AUTHOR}\n"
+      ALERTS="${ALERTS}  🔗 ${PR_URL}\n"
+    fi
   fi
 fi
 
