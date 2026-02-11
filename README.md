@@ -91,6 +91,38 @@ A **framework-agnostic A2A payment system** that enables agents to:
 - Framework-agnostic (pure Node.js + Express)
 - Agent card with capabilities
 
+### 🔌 HTTP 402 Payment Protocol (X402)
+**NEW:** Machine-to-machine micropayments using HTTP 402 "Payment Required"
+
+- **Client**: Automatically pay for APIs, data feeds, compute
+- **Server**: Charge for services (2¢ per request, 50¢ per minute, etc.)
+- **Market**: $600M annualized volume, 38M transactions
+- **Use cases**: Data feeds, GPU compute, web scraping, agent services
+
+**Quick Example (Client):**
+```javascript
+const response = await fetch('https://api.example.com/market-data/BTC');
+
+if (response.status === 402) {
+  // Auto-handle payment and retry
+  const paidResponse = await x402.handlePaymentRequired(response, ...);
+  const data = await paidResponse.json(); // ✅ Data delivered
+}
+```
+
+**Quick Example (Server):**
+```javascript
+app.get('/api/premium-data',
+  requirePayment(0.02, 'Market data'), // 2 cents
+  async (req, res) => {
+    res.json({ data: getPremiumData() });
+    await escrow.release(req.escrow.id); // ✅ Payment released
+  }
+);
+```
+
+**📚 Full Guide:** [docs/X402-INTEGRATION.md](docs/X402-INTEGRATION.md)
+
 ---
 
 ## 🚀 Quick Start

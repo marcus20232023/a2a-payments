@@ -1,0 +1,42 @@
+{
+  "esc_771cdc2f83b9ffc88292551bf2d5d50e": {
+    "id": "esc_771cdc2f83b9ffc88292551bf2d5d50e",
+    "payer": "trading-agent-001",
+    "payee": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "amount": 0.02,
+    "purpose": "X402: Real-time BTC market data",
+    "conditions": {
+      "requiresApproval": false,
+      "requiresDelivery": true,
+      "requiresArbiter": false,
+      "customConditions": [],
+      "autoRelease": true,
+      "protocol": "x402"
+    },
+    "state": "released",
+    "timeline": {
+      "created": 1770846200256,
+      "funded": 1770846200256,
+      "locked": 1770846200256,
+      "released": 1770846200257,
+      "refunded": null,
+      "disputed": null
+    },
+    "timeout": 1770846500256,
+    "approvals": [],
+    "deliveryProof": {
+      "submittedBy": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+      "timestamp": 1770846200257,
+      "data": {
+        "status": "delivered",
+        "timestamp": 1770846200257
+      },
+      "signature": "x402-auto-confirmed"
+    },
+    "disputeReason": null,
+    "txHash": "0x9c036738ab47b78f2688b4a4811c4f7ec68d21da2f5130875ec26861d8a50633",
+    "metadata": {
+      "releaseReason": "automatic - delivery confirmed"
+    }
+  }
+}

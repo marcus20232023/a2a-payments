@@ -303,6 +303,104 @@ class EscrowSystem {
       activeEscrows: all.filter(e => ['funded', 'locked'].includes(e.state)).length
     };
   }
+
+  /**
+   * X402-specific: Create escrow for HTTP 402 micropayments
+   * 
+   * @param {object} paymentInfo - Payment details from X402 response
+   * @param {string} paymentInfo.recipient - Recipient wallet address
+   * @param {number} paymentInfo.amount - Payment amount
+   * @param {string} paymentInfo.token - Token symbol (USDC, SHIB, etc.)
+   * @param {string} paymentInfo.description - Service description
+   * @param {object} options - Additional options
+   * @returns {object} Created escrow
+   */
+  createX402Escrow(paymentInfo, options = {}) {
+    const payer = options.payer || 'x402-client';
+    const autoRelease = options.autoRelease !== false; // Default true for micropayments
+    const timeout = options.timeoutMinutes || 5; // Default 5 minutes
+
+    return this.create({
+      payer,
+      payee: paymentInfo.recipient,
+      amount: paymentInfo.amount,
+      purpose: `X402: ${paymentInfo.description}`,
+      conditions: {
+        requiresApproval: false, // Auto-approve for micropayments
+        requiresDelivery: true,
+        requiresArbiter: false,
+        autoRelease,
+        protocol: 'x402',
+        token: paymentInfo.token || 'USDC'
+      },
+      timeoutMinutes: timeout
+    });
+  }
+
+  /**
+   * X402-specific: Verify payment proof from request headers
+   * 
+   * @param {string} escrowId - Escrow ID from X-Payment-Escrow-Id header
+   * @param {number} expectedAmount - Minimum expected payment amount
+   * @returns {object} Verification result { valid, escrow, error }
+   */
+  verifyX402Payment(escrowId, expectedAmount) {
+    const escrow = this.get(escrowId);
+
+    if (!escrow) {
+      return {
+        valid: false,
+        error: 'Escrow not found'
+      };
+    }
+
+    // Check if escrow is funded
+    if (!['funded', 'locked'].includes(escrow.state)) {
+      return {
+        valid: false,
+        error: `Escrow not funded (state: ${escrow.state})`
+      };
+    }
+
+    // Verify amount is sufficient
+    if (escrow.amount < expectedAmount) {
+      return {
+        valid: false,
+        error: `Insufficient payment: ${escrow.amount} < ${expectedAmount}`
+      };
+    }
+
+    // Check if this is an X402 escrow
+    if (!escrow.purpose || !escrow.purpose.startsWith('X402:')) {
+      return {
+        valid: false,
+        error: 'Not an X402 escrow'
+      };
+    }
+
+    return {
+      valid: true,
+      escrow
+    };
+  }
+
+  /**
+   * X402-specific: Release escrow after content delivery
+   * Wrapper around release() with X402-specific logging
+   * 
+   * @param {string} escrowId - Escrow ID
+   * @param {string} serviceDescription - Description of delivered service
+   * @returns {object} Updated escrow
+   */
+  releaseX402(escrowId, serviceDescription) {
+    const escrow = this.get(escrowId);
+    
+    if (escrow && escrow.conditions && escrow.conditions.autoRelease) {
+      return this.release(escrowId, `X402 auto-release: ${serviceDescription}`);
+    }
+    
+    return this.release(escrowId, serviceDescription);
+  }
 }
 
 module.exports = { EscrowSystem };
