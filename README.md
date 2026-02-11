@@ -1,5 +1,7 @@
 <div align="center">
 
+![A2A SHIB Payment System Banner](assets/banner.svg)
+
 # 🦪💰 A2A SHIB Payment Agent
 
 **The first production-ready agent-to-agent payment system for the new agent economy**

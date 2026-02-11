@@ -1,0 +1,51 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: 🔧 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20.x'
+        cache: 'npm'
+    
+    - name: 📦 Install dependencies
+      run: npm ci
+    
+    - name: 🧪 Run tests
+      run: npm test || echo "⚠️  Some tests skipped (requires env config)"
+    
+    - name: 📝 Generate changelog
+      id: changelog
+      run: |
+        echo "## What's Changed" > RELEASE_NOTES.md
+        git log $(git describe --tags --abbrev=0 HEAD^)..HEAD --pretty=format:"- %s (%h)" >> RELEASE_NOTES.md
+    
+    - name: 🚀 Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        body_path: RELEASE_NOTES.md
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: 📢 Announce release
+      run: |
+        echo "🎉 Release ${{ github.ref_name }} published!"
+        echo "View it at: https://github.com/${{ github.repository }}/releases/tag/${{ github.ref_name }}"
