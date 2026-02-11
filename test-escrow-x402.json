@@ -1022,5 +1022,282 @@
     "metadata": {
       "releaseReason": "automatic - delivery confirmed"
     }
+  },
+  "esc_2fb94ab030b420f58645876dbcd5ca6e": {
+    "id": "esc_2fb94ab030b420f58645876dbcd5ca6e",
+    "payer": "test-agent",
+    "payee": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "amount": 0.02,
+    "purpose": "X402: Test payment",
+    "conditions": {
+      "requiresApproval": false,
+      "requiresDelivery": true,
+      "requiresArbiter": false,
+      "customConditions": [],
+      "autoRelease": true,
+      "protocol": "x402"
+    },
+    "state": "pending",
+    "timeline": {
+      "created": 1770850731922,
+      "funded": null,
+      "locked": null,
+      "released": null,
+      "refunded": null,
+      "disputed": null
+    },
+    "timeout": 1770851031922,
+    "approvals": [],
+    "deliveryProof": null,
+    "disputeReason": null,
+    "txHash": null,
+    "metadata": {}
+  },
+  "esc_0b885e0daf2f6be2698a6351b747497f": {
+    "id": "esc_0b885e0daf2f6be2698a6351b747497f",
+    "payer": "test-agent",
+    "payee": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "amount": 0.02,
+    "purpose": "X402: Test payment",
+    "conditions": {
+      "requiresApproval": false,
+      "requiresDelivery": true,
+      "requiresArbiter": false,
+      "customConditions": [],
+      "autoRelease": true,
+      "protocol": "x402"
+    },
+    "state": "locked",
+    "timeline": {
+      "created": 1770850731925,
+      "funded": 1770850731937,
+      "locked": 1770850731937,
+      "released": null,
+      "refunded": null,
+      "disputed": null
+    },
+    "timeout": 1770851031925,
+    "approvals": [],
+    "deliveryProof": null,
+    "disputeReason": null,
+    "txHash": "0xf4e1d4536de1811920e40b9842b28d5e734e10f91427147111569eef85a06efc",
+    "metadata": {}
+  },
+  "esc_462c588c3869ac68539112d9f5a2f6af": {
+    "id": "esc_462c588c3869ac68539112d9f5a2f6af",
+    "payer": "test-agent",
+    "payee": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "amount": 0.02,
+    "purpose": "X402: Market data API",
+    "conditions": {
+      "requiresApproval": false,
+      "requiresDelivery": true,
+      "requiresArbiter": false,
+      "customConditions": [],
+      "autoRelease": true,
+      "protocol": "x402"
+    },
+    "state": "released",
+    "timeline": {
+      "created": 1770850731952,
+      "funded": 1770850731959,
+      "locked": 1770850731959,
+      "released": 1770850731969,
+      "refunded": null,
+      "disputed": null
+    },
+    "timeout": 1770851031952,
+    "approvals": [],
+    "deliveryProof": {
+      "submittedBy": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+      "timestamp": 1770850731969,
+      "data": {
+        "status": "delivered",
+        "timestamp": 1770850731969
+      },
+      "signature": "x402-auto-confirmed"
+    },
+    "disputeReason": null,
+    "txHash": "0xbb8505e7186c33f7cd42d2f30c7fa434449caf2fca07b22b2f6ab1e180e3b10a",
+    "metadata": {
+      "releaseReason": "automatic - delivery confirmed"
+    }
+  },
+  "esc_99417fc2db6b166f839c317e39e3e074": {
+    "id": "esc_99417fc2db6b166f839c317e39e3e074",
+    "payer": "agent-0",
+    "payee": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "amount": 0.02,
+    "purpose": "X402: Test payment 1",
+    "conditions": {
+      "requiresApproval": false,
+      "requiresDelivery": true,
+      "requiresArbiter": false,
+      "customConditions": [],
+      "autoRelease": true,
+      "protocol": "x402"
+    },
+    "state": "released",
+    "timeline": {
+      "created": 1770850732007,
+      "funded": 1770850732008,
+      "locked": 1770850732008,
+      "released": 1770850732024,
+      "refunded": null,
+      "disputed": null
+    },
+    "timeout": 1770851032007,
+    "approvals": [],
+    "deliveryProof": {
+      "submittedBy": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+      "timestamp": 1770850732024,
+      "data": {
+        "delivered": true
+      },
+      "signature": "test-sig"
+    },
+    "disputeReason": null,
+    "txHash": "0xeb8856baef5d7f126d21dc9ee73bbc52431c9464db53433d526301b37a809e0f",
+    "metadata": {
+      "releaseReason": "automatic - delivery confirmed"
+    }
+  },
+  "esc_7ef6eb7c2fd94e90c987a3be47df289f": {
+    "id": "esc_7ef6eb7c2fd94e90c987a3be47df289f",
+    "payer": "agent-1",
+    "payee": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "amount": 0.04,
+    "purpose": "X402: Test payment 2",
+    "conditions": {
+      "requiresApproval": false,
+      "requiresDelivery": true,
+      "requiresArbiter": false,
+      "customConditions": [],
+      "autoRelease": true,
+      "protocol": "x402"
+    },
+    "state": "locked",
+    "timeline": {
+      "created": 1770850732045,
+      "funded": 1770850732054,
+      "locked": 1770850732054,
+      "released": null,
+      "refunded": null,
+      "disputed": null
+    },
+    "timeout": 1770851032045,
+    "approvals": [],
+    "deliveryProof": null,
+    "disputeReason": null,
+    "txHash": "0x5c905d116ec024ba0d296ef84b92be46d2df8fc3ee351bb4d728dd8a5a993c55",
+    "metadata": {}
+  },
+  "esc_52ee1117a8e7e6470d3dbb1a43af86e1": {
+    "id": "esc_52ee1117a8e7e6470d3dbb1a43af86e1",
+    "payer": "agent-2",
+    "payee": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "amount": 0.06,
+    "purpose": "X402: Test payment 3",
+    "conditions": {
+      "requiresApproval": false,
+      "requiresDelivery": true,
+      "requiresArbiter": false,
+      "customConditions": [],
+      "autoRelease": true,
+      "protocol": "x402"
+    },
+    "state": "released",
+    "timeline": {
+      "created": 1770850732064,
+      "funded": 1770850732074,
+      "locked": 1770850732074,
+      "released": 1770850732087,
+      "refunded": null,
+      "disputed": null
+    },
+    "timeout": 1770851032064,
+    "approvals": [],
+    "deliveryProof": {
+      "submittedBy": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+      "timestamp": 1770850732087,
+      "data": {
+        "delivered": true
+      },
+      "signature": "test-sig"
+    },
+    "disputeReason": null,
+    "txHash": "0x8cebd110543a60152f005d819eaae04621b675bf28545dc84e31f495533b436e",
+    "metadata": {
+      "releaseReason": "automatic - delivery confirmed"
+    }
+  },
+  "esc_c700661efe6a2d099e9aea19c6fa4307": {
+    "id": "esc_c700661efe6a2d099e9aea19c6fa4307",
+    "payer": "agent-3",
+    "payee": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "amount": 0.08,
+    "purpose": "X402: Test payment 4",
+    "conditions": {
+      "requiresApproval": false,
+      "requiresDelivery": true,
+      "requiresArbiter": false,
+      "customConditions": [],
+      "autoRelease": true,
+      "protocol": "x402"
+    },
+    "state": "locked",
+    "timeline": {
+      "created": 1770850732109,
+      "funded": 1770850732118,
+      "locked": 1770850732118,
+      "released": null,
+      "refunded": null,
+      "disputed": null
+    },
+    "timeout": 1770851032109,
+    "approvals": [],
+    "deliveryProof": null,
+    "disputeReason": null,
+    "txHash": "0x7056795b32b14ca4d10bf3afbc4a6534048106f19511d975aa7d8fc05d37aa17",
+    "metadata": {}
+  },
+  "esc_231163a9d0ff8562baef062256a82761": {
+    "id": "esc_231163a9d0ff8562baef062256a82761",
+    "payer": "agent-4",
+    "payee": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "amount": 0.1,
+    "purpose": "X402: Test payment 5",
+    "conditions": {
+      "requiresApproval": false,
+      "requiresDelivery": true,
+      "requiresArbiter": false,
+      "customConditions": [],
+      "autoRelease": true,
+      "protocol": "x402"
+    },
+    "state": "released",
+    "timeline": {
+      "created": 1770850732129,
+      "funded": 1770850732137,
+      "locked": 1770850732137,
+      "released": 1770850732146,
+      "refunded": null,
+      "disputed": null
+    },
+    "timeout": 1770851032129,
+    "approvals": [],
+    "deliveryProof": {
+      "submittedBy": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+      "timestamp": 1770850732146,
+      "data": {
+        "delivered": true
+      },
+      "signature": "test-sig"
+    },
+    "disputeReason": null,
+    "txHash": "0x88da02462a85d25fbcbf638d74bbf0e868b87e6337e08107619b100695067512",
+    "metadata": {
+      "releaseReason": "automatic - delivery confirmed"
+    }
   }
 }

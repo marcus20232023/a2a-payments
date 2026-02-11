@@ -118,5 +118,35 @@
     "metadata": {
       "refundReason": "automatic timeout"
     }
+  },
+  "esc_92dcffd0cc443e708bda4c69299d17c2": {
+    "id": "esc_92dcffd0cc443e708bda4c69299d17c2",
+    "payer": "0x1234567890123456789012345678901234567890",
+    "payee": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb",
+    "amount": 0.02,
+    "purpose": "X402: Timeout test",
+    "conditions": {
+      "requiresApproval": true,
+      "requiresDelivery": false,
+      "requiresArbiter": false,
+      "customConditions": []
+    },
+    "state": "refunded",
+    "timeline": {
+      "created": 1770850731986,
+      "funded": 1770850731987,
+      "locked": null,
+      "released": null,
+      "refunded": 1770850732000,
+      "disputed": null
+    },
+    "timeout": 1770850671986,
+    "approvals": [],
+    "deliveryProof": null,
+    "disputeReason": null,
+    "txHash": "0x937c6ed2d89a3",
+    "metadata": {
+      "refundReason": "automatic timeout"
+    }
   }
 }

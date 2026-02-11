@@ -630,8 +630,8 @@ Technically yes, but it's optimized for automated agent workflows. Humans typica
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/marcus20232023/a2a-shib-payments.git
-cd a2a-shib-payments
+git clone https://github.com/marcus20232023/a2a-payments.git
+cd a2a-payments
 npm install
 ```
 
@@ -663,8 +663,8 @@ node examples/x402-client-example.js
 ## Support
 
 - **📖 Documentation:** [/docs](../docs/)
-- **🐛 Issues:** [GitHub Issues](https://github.com/marcus20232023/a2a-shib-payments/issues)
-- **💬 Discussions:** [GitHub Discussions](https://github.com/marcus20232023/a2a-shib-payments/discussions)
+- **🐛 Issues:** [GitHub Issues](https://github.com/marcus20232023/a2a-payments/issues)
+- **💬 Discussions:** [GitHub Discussions](https://github.com/marcus20232023/a2a-payments/discussions)
 - **📧 Contact:** Open an issue or discussion
 
 ---
