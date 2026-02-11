@@ -537,9 +537,9 @@ Have an integration example for another framework? Submit a PR!
 
 ### ERC-20 tokens
 
-#### USDC (Mumbai testnet)
+#### USDC (Amoy testnet)
 
-We added a minimal ERC-20/USDC adapter in `adapters/erc20-usdc.js` and a read-only test in `test/test-usdc.js` which you can run to inspect token metadata (symbol/decimals) on Polygon Mumbai.
+We added a minimal ERC-20/USDC adapter in `adapters/erc20-usdc.js` and a read-only test in `test/test-usdc.js` which you can run to inspect token metadata (symbol/decimals) on Polygon Amoy testnet (Mumbai's successor).
 
 Usage:
 
@@ -548,11 +548,11 @@ Usage:
    cd /home/marc/projects/a2a-shib-payments
    npm install
 
-2. Edit `test/test-usdc.js` and set `usdcAddress` to a Mumbai USDC token address. Example known address (Polygonscan): `0xe6b8a5cf854791412c1f6efc7caf629f5df1c747`.
+2. The test is pre-configured with an Amoy USDC token address: `0x41e94eb019c0762f9bfcf9fb1e58725bfb0e7582`. You can verify or change this in `test/test-usdc.js`.
 
-3. Choose a reliable Mumbai RPC provider. Public endpoints may require API keys; recommended options:
-   - Alchemy: `https://polygon-mumbai.g.alchemy.com/v2/<YOUR_KEY>`
-   - Infura: `https://polygon-mumbai.infura.io/v3/<YOUR_KEY>`
+3. Choose a reliable Amoy RPC provider. Public endpoints may require API keys; recommended options:
+   - Alchemy: `https://polygon-amoy.g.alchemy.com/v2/<YOUR_KEY>`
+   - Infura: `https://polygon-amoy.infura.io/v3/<YOUR_KEY>`
    - Ankr / Chainstack: provide your project-specific endpoint
 
 4. Run the read-only test (no funds required):
