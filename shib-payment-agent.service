@@ -1,0 +1,27 @@
+[Unit]
+Description=SHIB Payment Agent (Full-Featured A2A)
+After=network.target
+
+[Service]
+Type=simple
+User=marc
+WorkingDirectory=/home/marc/clawd/skills/shib-payments
+ExecStart=/usr/bin/node a2a-agent-full.js
+Restart=always
+RestartSec=10
+Environment=NODE_ENV=production
+
+# Security hardening
+PrivateTmp=true
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+ReadWritePaths=/home/marc/clawd/skills/shib-payments/audit-logs /home/marc/clawd/skills/shib-payments
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=shib-payment-agent
+
+[Install]
+WantedBy=multi-user.target
