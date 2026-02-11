@@ -2,9 +2,9 @@ const ethers = require('ethers');
 const ERC20Adapter = require('../adapters/erc20-usdc');
 
 async function main(){
-  // Uses Polygon Mumbai public RPC for quick test (read-only)
-  const provider = new ethers.JsonRpcProvider('https://rpc.ankr.com/polygon_mumbai');
-  const usdcAddress = '0xe6b8a5cf854791412c1f6efc7caf629f5df1c747'; // Mumbai USDC token address (Polygonscan)
+  // Uses Polygon Amoy testnet (Mumbai successor)
+  const provider = new ethers.JsonRpcProvider('https://polygon-amoy.g.alchemy.com/v2/hVPR2ngPHhDRUCWKsS_hX');
+  const usdcAddress = '0x41e94eb019c0762f9bfcf9fb1e58725bfb0e7582'; // Amoy USDC token address
   const adapter = new ERC20Adapter(provider, usdcAddress);
   try{
     const symbol = await adapter.getSymbol();
