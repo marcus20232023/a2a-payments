@@ -1,0 +1,15 @@
+{
+  "user-1770898104633": {
+    "id": "user-1770898104633",
+    "walletAddress": "0xBcryptTest123",
+    "email": "bcrypt.test@example.com",
+    "passwordHash": "$2b$10$coGd6zkFyCxFkNaZRi/RcOv3hTNf5aAl6bbSmcxjhS7XSwl9nW.Ym",
+    "isAgent": true,
+    "createdAt": "2026-02-12T12:08:24.697Z",
+    "totalEarnings": 0,
+    "completedTasks": 0,
+    "rating": 0,
+    "reviewCount": 0,
+    "isVerified": false
+  }
+}
