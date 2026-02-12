@@ -1,0 +1,35 @@
+[
+  {
+    "timestamp": 1770895265143,
+    "type": "webhook_registered",
+    "data": {
+      "webhookId": "wh_b149ef44ca575a937b87e98a0d2913d3",
+      "url": "http://localhost:9998/webhook",
+      "eventTypes": [
+        "escrow_funded"
+      ]
+    }
+  },
+  {
+    "timestamp": 1770895265143,
+    "type": "escrow_funded",
+    "data": {
+      "eventId": "evt_2bee98dae9a2eff91bcd0fb5565dedaf",
+      "webhookId": "wh_b149ef44ca575a937b87e98a0d2913d3",
+      "status": "queued"
+    }
+  },
+  {
+    "timestamp": 1770895266144,
+    "type": "webhook_delivery_failed_retry",
+    "data": {
+      "webhookId": "wh_b149ef44ca575a937b87e98a0d2913d3",
+      "eventId": "evt_2bee98dae9a2eff91bcd0fb5565dedaf",
+      "eventType": "escrow_funded",
+      "attempt": 1,
+      "error": "HTTP 500: Server error",
+      "nextRetryAt": 1770895267144,
+      "delayMs": 1000
+    }
+  }
+]

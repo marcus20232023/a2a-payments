@@ -1,0 +1,21 @@
+{
+  "wh_5501968d9211fe08711ad356b9f727c3": {
+    "id": "wh_5501968d9211fe08711ad356b9f727c3",
+    "url": "http://localhost:9998/webhook",
+    "eventTypes": [
+      "escrow_funded"
+    ],
+    "secret": "4989c715ab73d7f21debf8e0129bbd806024d0010e8ec9ca70d62ba33fce46ea",
+    "enabled": true,
+    "createdAt": 1770895290926,
+    "lastTriggeredAt": null,
+    "successCount": 0,
+    "failureCount": 1,
+    "retryCount": 1,
+    "metadata": {
+      "description": null,
+      "headers": {},
+      "active": true
+    }
+  }
+}
