@@ -6,11 +6,14 @@
   "scripts": {
     "start": "node a2a-agent-full.js",
     "start:basic": "node a2a-agent-v2.js",
-    "test": "npm run test:security && npm run test:escrow && npm run test:reputation && npm run test:github-tipping",
+    "start:ws": "node websocket-server.js",
+    "test": "npm run test:security && npm run test:escrow && npm run test:reputation && npm run test:github-tipping && npm run test:websocket && npm run test:webhooks",
     "test:security": "node test-security.js",
     "test:escrow": "node test-escrow-negotiation.js",
     "test:reputation": "node test-reputation.js",
     "test:github-tipping": "node test/test-github-tipping.js",
+    "test:websocket": "node test/test-websocket-updates.js",
+    "test:webhooks": "node test/test-event-webhooks.js",
     "deploy": "./deploy-local.sh"
   },
   "keywords": [
@@ -45,7 +48,9 @@
   "dependencies": {
     "@a2a-js/sdk": "^0.3.10",
     "ethers": "^6.13.0",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "ws": "^8.15.0",
+    "jsonwebtoken": "^9.0.0"
   },
   "engines": {
     "node": ">=18.0.0"
