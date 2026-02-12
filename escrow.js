@@ -42,7 +42,9 @@ class EscrowSystem {
    * @param {object} params.conditions - Release conditions
    * @param {number} params.timeoutMinutes - Auto-refund after timeout (optional)
    */
-  create({ payer, payee, amount, purpose, conditions = {}, timeoutMinutes = null }) {
+  create({ payer, payee, amount, purpose, token = 'SHIB', conditions = {}, timeoutMinutes = null }) {
+    // token: string token symbol, e.g. 'SHIB' or 'USDC' — stored so adapters and UI can handle token-specific flows
+
     const escrowId = 'esc_' + crypto.randomBytes(16).toString('hex');
     
     const now = Date.now();
@@ -75,6 +77,11 @@ class EscrowSystem {
       txHash: null,
       metadata: {}
     };
+
+    // Attach token-aware metadata for adapters/gas/approval flows
+    escrow.metadata.tokenAdapter = token === 'USDC' ? 'erc20-usdc' : 'native';
+    // For ERC20 tokens we mark that an approval/allowance flow is expected
+    escrow.metadata.requiresApproval = token === 'USDC';
 
     this.escrows[escrowId] = escrow;
     this.saveState();
